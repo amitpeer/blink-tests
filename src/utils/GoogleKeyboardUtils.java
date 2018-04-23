@@ -7,6 +7,10 @@ public class GoogleKeyboardUtils {
     public GoogleKeyboardUtils() {
     }
 
+    public void click() {
+        RobotUtils.robotKeyPressAndRelease(KeyEvent.VK_ENTER);
+    }
+
     public void openGoogleKeyboard() {
         RobotUtils.robotKeyPressAndRelease(KeyEvent.VK_DOWN);
         RobotUtils.robotKeyPressAndRelease(KeyEvent.VK_RIGHT);
@@ -16,10 +20,22 @@ public class GoogleKeyboardUtils {
         Utils.sleep(1500);
     }
 
+    public void goToCloseButton() {
+        RobotUtils.robotKeyPressAndRelease(KeyEvent.VK_UP, 6);
+    }
+
     public void pressCapsLock() {
         RobotUtils.robotKeyPressAndRelease(KeyEvent.VK_DOWN, 4);
         RobotUtils.robotKeyPressAndRelease(KeyEvent.VK_ENTER);
         RobotUtils.robotKeyPressAndRelease(KeyEvent.VK_UP, 4);
+    }
+
+    public void search() {
+        RobotUtils.robotKeyPressAndRelease(KeyEvent.VK_DOWN, 3);
+        RobotUtils.robotKeyPressAndRelease(KeyEvent.VK_RIGHT, 12);
+
+        RobotUtils.robotKeyPressAndRelease(KeyEvent.VK_ENTER);
+
     }
 
     public void writeShalom() {
@@ -41,5 +57,11 @@ public class GoogleKeyboardUtils {
         RobotUtils.robotKeyPressAndRelease(KeyEvent.VK_RIGHT, 2);
         RobotUtils.robotKeyPressAndRelease(KeyEvent.VK_ENTER);
 
+        goToCloseButton();
+    }
+
+    public void enterReadingState() {
+        RobotUtils.robotKeyPressAndRelease(KeyEvent.VK_RIGHT, 3);
+        RobotUtils.robotKeyPressAndRelease(KeyEvent.VK_ENTER);
     }
 }

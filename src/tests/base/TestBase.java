@@ -1,4 +1,4 @@
-package tests;
+package tests.base;
 
 import org.junit.After;
 import org.junit.Before;
@@ -16,8 +16,8 @@ import java.util.Optional;
 
 public class TestBase {
 
-    WebDriver webDriver;
-    BrowserActions browserActions;
+    protected WebDriver webDriver;
+    protected BrowserActions browserActions;
 
     @Before
     public void beforeTest() {
@@ -30,7 +30,6 @@ public class TestBase {
 
         log("Set up web driver");
         webDriver = new ChromeDriver(options);
-        webDriver.get("https://www.google.com");
 
         browserActions = new BrowserActions(webDriver);
 
@@ -70,5 +69,14 @@ public class TestBase {
         }
 
         return webElement;
+    }
+
+    protected void navigateTo(String url) {
+        webDriver.get(url);
+        sleep(1000);
+    }
+
+    protected void waitForPageToLoad() {
+        sleep(2000);
     }
 }

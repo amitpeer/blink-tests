@@ -22,4 +22,34 @@ public class BrowserActions {
 
         Utils.sleep(2000);
     }
+
+    public void back() {
+        RobotUtils.robotKeyPressAndRelease(KeyEvent.VK_RIGHT);
+        RobotUtils.robotKeyPressAndRelease(KeyEvent.VK_ENTER);
+    }
+
+    public void forward() {
+        RobotUtils.robotKeyPressAndRelease(KeyEvent.VK_RIGHT, 2);
+        RobotUtils.robotKeyPressAndRelease(KeyEvent.VK_ENTER);
+    }
+
+    public void openMatrix() {
+        RobotUtils.robotKeyPressAndRelease(KeyEvent.VK_ENTER);
+
+        RobotUtils.robotKeyPressAndRelease(KeyEvent.VK_UP, 10);
+        RobotUtils.robotKeyPressAndRelease(KeyEvent.VK_LEFT, 5);
+    }
+
+    public void goToHomepage() {
+        RobotUtils.robotKeyPressAndRelease(KeyEvent.VK_DOWN);
+        RobotUtils.robotKeyPressAndRelease(KeyEvent.VK_ENTER);
+    }
+
+    public MatrixLettersNavigator goToLink() {
+        return new MatrixLettersNavigator();
+    }
+
+    public void scrollDown() {
+        RobotUtils.robotKeyPressAndRelease(KeyEvent.VK_DOWN, 40);
+    }
 }
