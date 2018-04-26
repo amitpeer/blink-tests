@@ -13,7 +13,7 @@ public final class RobotUtils {
         for (int i = 0; i < times; i++) {
             robot.keyPress(key);
             robot.keyRelease(key);
-            Utils.sleep(200);
+            afterClickSleep();
         }
     }
 
@@ -21,7 +21,7 @@ public final class RobotUtils {
         for (int k : keys) {
             robot.keyPress(k);
             robot.keyRelease(k);
-            Utils.sleep(200);
+            afterClickSleep();
         }
     }
 
@@ -35,6 +35,10 @@ public final class RobotUtils {
         for (int k : keys) {
             robot.keyRelease(k);
         }
+    }
+
+    private static void afterClickSleep() {
+        Utils.sleep(500);
     }
 
     static {

@@ -14,20 +14,25 @@ public class ClosedMatrixTests extends CustomSiteTestBase {
     public void beforeTest() {
         super.beforeTest();
 
-        log("Close matrix (enter reading state)");
-        browserActions.keyboard().enterReadingState();
+        log("Go the Register page (has a button down the page)");
+        browserActions.goToLink().b();
     }
 
     @Test
-    public void verifyScrollDown() {
-        Assert.assertFalse(getElement(By.id("button-bottom")).isPresent());
-
+    public void verifyScrollDownAndUp() {
         log("Scroll scrollDown");
-        browserActions.scrollDown();
+        browserActions.scrollDown(7);
 
         log("Verify the bottom button is visible");
-        Optional<WebElement> button = getElement(By.id("button-bottom"));
+        Optional<WebElement> button = getElement(By.id("loginbtn"));
         Assert.assertTrue(button.isPresent());
+
+        log("Scroll up");
+        browserActions.scrollUp(7);
+
+        log("Verify the bottom header is visible");
+        Optional<WebElement> header = getElement(By.id("headerTitle"));
+        Assert.assertTrue(header.isPresent());
     }
 }
 

@@ -8,11 +8,11 @@ import tests.base.TestBase;
 public class NavigationTests extends CustomSiteTestBase {
 
     @Test
-    public void navigateToGoogleLink() {
-        log("Click on C letter");
-        browserActions.goToLink().c();
+    public void verifyNavigationToExternalLink() {
+        log("Click on E letter");
+        browserActions.goToLink().e();
 
         log("Verify navigation to Google occurred");
-        Assert.assertEquals("https://www.youtube.com/", webDriver.getCurrentUrl());
+        Assert.assertEquals("https://www.google.com/", webDriver.getCurrentUrl());
     }
 }

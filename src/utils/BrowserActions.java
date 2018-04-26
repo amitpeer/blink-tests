@@ -49,7 +49,11 @@ public class BrowserActions {
         return new MatrixLettersNavigator();
     }
 
-    public void scrollDown() {
-        RobotUtils.robotKeyPressAndRelease(KeyEvent.VK_DOWN, 40);
+    public void scrollDown(int amount) {
+        RobotUtils.robotKeyPressAndRelease(KeyEvent.VK_DOWN, amount);
+    }
+
+    public void scrollUp(int amount) {
+        RobotUtils.robotKeyPressAndRelease(KeyEvent.VK_UP, amount);
     }
 }

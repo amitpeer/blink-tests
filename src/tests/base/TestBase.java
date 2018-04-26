@@ -12,7 +12,10 @@ import utils.BrowserActions;
 import utils.Utils;
 
 import java.io.File;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class TestBase {
 
@@ -38,7 +41,11 @@ public class TestBase {
 
     @After
     public void afterTest() {
-        webDriver.close();
+        final Set<String> handles = webDriver.getWindowHandles();
+        for (String handle : handles) {
+            webDriver.switchTo().window(handle);
+            webDriver.close();
+        }
     }
 
     protected void log(String message) {
@@ -78,5 +85,11 @@ public class TestBase {
 
     protected void waitForPageToLoad() {
         sleep(2000);
+    }
+
+    protected void switchToTab(int tabIndex) {
+        sleep(5000);
+        final List<String> handles = webDriver.getWindowHandles().stream().collect(Collectors.toList());
+        webDriver.switchTo().window(handles.get(tabIndex));
     }
 }
