@@ -12,8 +12,8 @@ public class BrowserActions {
         this.webDriver = webDriver;
     }
 
-    public GoogleKeyboardUtils keyboard() {
-        return new GoogleKeyboardUtils();
+    public KeyboardUtils keyboard() {
+        return new KeyboardUtils();
     }
 
     public void openExtension() {
@@ -45,8 +45,8 @@ public class BrowserActions {
         RobotUtils.robotKeyPressAndRelease(KeyEvent.VK_ENTER);
     }
 
-    public MatrixLettersNavigator goToLink() {
-        return new MatrixLettersNavigator();
+    public MatrixNavigator matrix() {
+        return new MatrixNavigator();
     }
 
     public void scrollDown(int amount) {
@@ -56,4 +56,5 @@ public class BrowserActions {
     public void scrollUp(int amount) {
         RobotUtils.robotKeyPressAndRelease(KeyEvent.VK_UP, amount);
     }
+
 }
