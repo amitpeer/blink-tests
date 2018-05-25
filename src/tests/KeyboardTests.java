@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import tests.base.CustomSiteTestBase;
+import utils.EmptyWebElement;
 
 import java.util.Optional;
 
@@ -44,6 +45,7 @@ public class KeyboardTests extends CustomSiteTestBase {
 
         log("verify 'hello' is written");
         Optional<WebElement> input = getElement(By.id("test-muse-keyboard"));
-        Assert.assertEquals("hello", input.get().getAttribute("value"));
+        String writtenValue = input.orElse(new EmptyWebElement()).getAttribute("value");
+        Assert.assertEquals("hello", writtenValue);
     }
 }
